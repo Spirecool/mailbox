@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mailbox
+{% endblock %}
+
+{% block body %}
+	<section class="container">
+		<div class="row">
+			<div class="col">
+				<h1>
+					MailBox
+				</h1>
+				<p>
+					MailBox Resume
+				</p>
+				<p>
+					Received : 
+				</p>
+				<p>
+					Sent : 
+				</p>
+				<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+					See my Folders
+				</a>
+                <a href="#" class="btn btn-primary">Send a message</a>
+
+
+				<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+					<div class="offcanvas-header">
+						<h2 class="offcanvas-title" id="offcanvasExampleLabel">Folders</h2>
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+					</div>
+					<div class="offcanvas-body">
+						<p> Check your folder's mails </p>
+                        <div class="list-group">
+                            <a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action active"> Home</a>
+                            <a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action"> MailBox</a>
+                            <a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action"> Sent Mails</a>
+                        </div>
+					</div>
+				</section>
+			{% endblock %}
