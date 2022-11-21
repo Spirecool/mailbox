@@ -45,11 +45,23 @@ class MessagesController extends AbstractController
         ]);
     }
 
-    
+
     #[Route('/received', name: 'app_received')]
     public function received(): Response
     {
         return $this->render('messages/received.html.twig');
+    }
+
+    #[Route('/read/{id}', name: 'app_read')]
+    public function read(Message $message, ManagerRegistry $doctrine): Response
+    {
+        
+        $message->setIsRead(true);
+        $entityManager = $doctrine->getManager();
+        $entityManager->persist($message);
+        $entityManager->flush();
+
+        return $this->render('messages/read.html.twig', compact("message"));
     }
 }
 

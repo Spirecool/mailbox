@@ -24,10 +24,18 @@
 			<div class="col-3">Actions</div>
 
 			{% for message in app.user.received %}
-				<div class="col-3"> {{ message.sender.email }} </div>
-				<div class="col-3"> {{ message.title }} </div>
-				<div class="col-3"> {{ message.createdAt|date }} </div>
-				<div class="col-3"> </div>
+			
+			{#  on met en gras quand message n'est pas lu  #}
+			{% if message.isRead == 0 %}
+				{% set bold = "fw-bold" %}
+			{% else %}
+				{% set bold = "" %}
+			{% endif %}
+
+				<div class="col-3 {{ bold }}"> {{ message.sender.email }} </div>
+				<div class="col-3 {{ bold }}"> {{ message.title }} </div>
+				<div class="col-3 {{ bold }}"> {{ message.createdAt|date }} </div>
+				<div class="col-3 {{ bold }}"> </div>
 			{% endfor %}
 
 			<div class="col">
