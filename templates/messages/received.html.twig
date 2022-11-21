@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mailbox
+{% endblock %}
+
+{% block body %}
+	<section class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="mt-5 mb-3 text-uppercase"></h1>
+				<h2 class="mt-3 mb-5">
+					-> MailBox
+				</h2>
+				<p>
+					You received
+					{{ app.user.received|length }}
+					message(s)
+				</p>
+			</div>
+
+			<div class="col-3">From</div>
+			<div class="col-3">Subject</div>
+			<div class="col-3">Date</div>
+			<div class="col-3">Actions</div>
+
+			{% for message in app.user.received %}
+				<div class="col-3"> {{ message.sender.email }} </div>
+				<div class="col-3"> {{ message.title }} </div>
+				<div class="col-3"> {{ message.createdAt|date }} </div>
+				<div class="col-3"> </div>
+			{% endfor %}
+
+			<div class="col">
+				<a class="btn btn-dark my-5" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+					See my Folders
+				</a>
+				<a href="{{ path("app_send") }}" class="btn btn-primary">Send a message</a>
+			</div>
+			<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+				<div class="offcanvas-header">
+					<h2 class="offcanvas-title" id="offcanvasExampleLabel">Folders</h2>
+					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+					<p>
+						Check your folder's mails
+					</p>
+					<div class="list-group">
+						<a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action ">
+							Home</a>
+						<a href="{{ path("app_received") }}" class="list-group-item list-group-item-action active">
+							MailBox</a>
+						<a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action">
+							Sent Mails</a>
+					</div>
+				</div>
+			</section>
+		{% endblock %}

@@ -9,6 +9,9 @@
 			<div class="col">
             
 				<h1 class="mt-5 mb-3 text-uppercase">Send a message</h1>
+				<h2>
+					Send
+				</h2>
                 <a class="btn btn-dark my-5" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
 					See my folders
 				</a>
@@ -27,10 +30,10 @@
                 <a href="{{ path("app_logout") }}" class="list-group-item list-group-item-action">Logout</a>
             </div>
             <div class="list-group">
-                <a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action">MailBox</a>
+                <a href="{{ path("app_received") }}" class="list-group-item list-group-item-action">MailBox</a>
             </div>
             <div class="list-group">
-                <a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action">Sent Email</a>
+                <a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action active">Sent Email</a>
             </div>
 		</div>
 	</div>

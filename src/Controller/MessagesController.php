@@ -21,7 +21,6 @@ class MessagesController extends AbstractController
     }
 
     #[Route('/send', name: 'app_send')]
-   
     public function send(Request $request, ManagerRegistry $doctrine): Response
     {
         $entityManager = $doctrine->getManager();
@@ -44,6 +43,13 @@ class MessagesController extends AbstractController
         return $this->render("messages/send.html.twig", [
             "form" => $form->createView()
         ]);
+    }
+
+    
+    #[Route('/received', name: 'app_received')]
+    public function received(): Response
+    {
+        return $this->render('messages/received.html.twig');
     }
 }
 
