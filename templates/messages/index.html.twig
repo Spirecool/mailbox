@@ -7,23 +7,22 @@
 	<section class="container">
 		<div class="row">
 			<div class="col">
-				<h1>
-					MailBox
+				<h1 class="mt-5 mb-3 text-uppercase">
+					MailBox 
 				</h1>
 				<p>
-					MailBox Resume
+					MailBox Resume 
 				</p>
 				<p>
-					Received : 
+					Received : {{ app.user.received|length }}
 				</p>
 				<p>
-					Sent : 
+					Sent : {{ app.user.sent|length }}
 				</p>
-				<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+				<a class="btn btn-dark my-5" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
 					See my Folders
 				</a>
-                <a href="#" class="btn btn-primary">Send a message</a>
-
+                <a href="{{ path("app_send") }}" class="btn btn-primary">Send a message</a>
 
 				<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
 					<div class="offcanvas-header">
