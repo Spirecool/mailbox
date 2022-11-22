@@ -37,6 +37,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'recipient', targetEntity: Message::class, orphanRemoval: true)]
     private Collection $received;
 
+    #[ORM\OneToMany(mappedBy: 'trash', targetEntity: Message::class, orphanRemoval: true)]
+    private Collection $trashed;
+
     public function __construct()
     {
         $this->sent = new ArrayCollection();
@@ -177,4 +180,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->email;
     }
+
 }

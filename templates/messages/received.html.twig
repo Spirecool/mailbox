@@ -33,9 +33,15 @@
 			{% endif %}
 
 				<div class="col-3 {{ bold }}"> {{ message.sender.email }} </div>
-				<div class="col-3 {{ bold }}"> {{ message.title }} </div>
+				<div class="col-3 {{ bold }}"> <a href="{{ path("app_read", {id:message.id}) }}"> {{ message.title }} </a> </div>
 				<div class="col-3 {{ bold }}"> {{ message.createdAt|date }} </div>
-				<div class="col-3 {{ bold }}"> </div>
+				<div class="col-3 {{ bold }}">
+					<a href="{{ path("app_delete", {id:message.id}) }}" >
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-excel-fill text-danger" viewBox="0 0 16 16">
+							<path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5.884 4.68 8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 1 1 .768-.64z"/>
+						</svg>
+					</a>
+				</div>
 			{% endfor %}
 
 			<div class="col">
@@ -58,7 +64,7 @@
 							Home</a>
 						<a href="{{ path("app_received") }}" class="list-group-item list-group-item-action active">
 							MailBox</a>
-						<a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action">
+						<a href="{{ path("app_sent") }}" class="list-group-item list-group-item-action">
 							Sent Mails</a>
 					</div>
 				</div>

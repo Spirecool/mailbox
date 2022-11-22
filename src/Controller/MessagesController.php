@@ -63,6 +63,25 @@ class MessagesController extends AbstractController
 
         return $this->render('messages/read.html.twig', compact("message"));
     }
+
+    #[Route('/delete{id}', name: 'app_delete')]
+    public function delete(Message $message, ManagerRegistry $doctrine): Response
+    {
+        
+        $message->setIsRead(true);
+        $entityManager = $doctrine->getManager();
+        $entityManager->remove($message);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_received');
+    }
+
+    #[Route('/sent', name: 'app_sent')]
+    public function sent(): Response
+    {
+        return $this->render('messages/sent.html.twig');
+    }
+
 }
 
 

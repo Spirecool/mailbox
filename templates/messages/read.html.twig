@@ -7,15 +7,22 @@
 	<section class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1>Messagerie</h1>
-                <h2>{{ message.title }}</h2>
-                <p>Message de {{ message.sender.email }}</p>
-                <p>Le {{ message.createdAt|date }}</p>
-                <div>{{ message.message }}</div>
-				<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-					Voir mes dossiers
+				<h1 class="py-5">Messagerie</h1>
+				<div class="col">
+					<h2 class="pb-3">Title : {{ message.title }}</h2>
+					<p> From
+						{{ message.sender.email }}</p>
+					<p> Date :
+						{{ message.createdAt|date }}</p>
+                    <div class="pb-5"> Message : {{ message.message }}
+                    </div>
+				</div>
+
+				
+				<a class="btn btn-dark" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+					See my Folders
 				</a>
-                <a href="{{path("app_received")}}" class="btn btn-primary">Retour à la boite de réception</a>
+				<a href="{{path("app_received")}}" class="btn btn-primary">Back to MailBox</a>
 			</div>
 		</div>
 	</section>
@@ -25,15 +32,15 @@
 			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 		</div>
 		<div class="offcanvas-body">
-            <div class="list-group">
-                <a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action">Accueil</a>
-            </div>
-            <div class="list-group">
-                <a href="{{ path("app_received") }}" class="list-group-item list-group-item-action active">Boîte de réception</a>
-            </div>
-            <div class="list-group">
-                <a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action">Eléments envoyés</a>
-            </div>
+			<div class="list-group">
+				<a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action">Accueil</a>
+			</div>
+			<div class="list-group">
+				<a href="{{ path("app_received") }}" class="list-group-item list-group-item-action active">Boîte de réception</a>
+			</div>
+			<div class="list-group">
+				<a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action">Eléments envoyés</a>
+			</div>
 		</div>
 	</div>
 {% endblock %}
