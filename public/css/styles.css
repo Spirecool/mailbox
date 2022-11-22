@@ -1,0 +1,35 @@
+/* GENERAL */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600&display=swap');
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+}
+
+.bg-image {
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
+
+  /* LOGIN PAGE */
+
+.wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.wrapper .login-card {
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 10px;
+}

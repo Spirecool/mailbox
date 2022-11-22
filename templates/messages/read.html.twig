@@ -17,30 +17,9 @@
                     <div class="pb-5"> Message : {{ message.message }}
                     </div>
 				</div>
-
-				
-				<a class="btn btn-dark" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-					See my Folders
-				</a>
-				<a href="{{path("app_received")}}" class="btn btn-primary">Back to MailBox</a>
+				<a href="{{path("app_received")}}" class="btn btn-dark">Back to MailBox</a>
 			</div>
 		</div>
 	</section>
-	<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-		<div class="offcanvas-header">
-			<h2 class="offcanvas-title" id="offcanvasExampleLabel">Mes dossiers</h2>
-			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-		</div>
-		<div class="offcanvas-body">
-			<div class="list-group">
-				<a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action">Accueil</a>
-			</div>
-			<div class="list-group">
-				<a href="{{ path("app_received") }}" class="list-group-item list-group-item-action active">Boîte de réception</a>
-			</div>
-			<div class="list-group">
-				<a href="{{ path("app_messages") }}" class="list-group-item list-group-item-action">Eléments envoyés</a>
-			</div>
-		</div>
-	</div>
+	
 {% endblock %}
